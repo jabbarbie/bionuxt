@@ -1,0 +1,16 @@
+<template>
+    <div class="container">
+        <h1>About  {{ id }}</h1>
+    </div>
+</template>
+
+<script>
+export default {
+    layout: 'blog',
+    asyncData({isDev, route, store, env, params, query, req, res, redirect, error}) {
+        return  {
+            id: params.id
+        }
+    },
+}
+</script>
