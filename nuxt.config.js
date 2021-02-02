@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Sate',
+    title: 'Probio System',
     htmlAttrs: {
       lang: 'id'
     },
@@ -14,7 +14,7 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/icon.png' }
+      { rel: 'icon', type: 'image/x-icon', href: '/icon.png' },
     ]
   },
 

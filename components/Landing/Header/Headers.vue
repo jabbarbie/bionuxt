@@ -2,7 +2,7 @@
   <Header class="d-flex justify-content-center align-items-center">
       <Navbars></Navbars>
       
-      <div class="container">
+      <div class="container px-0">
 
       <div class="col-md-12  p-0 d-flex justify-content-between" id="slide">
           <div class="col-md-6 text-left p-0 ">
@@ -13,11 +13,11 @@
               <p>
                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi non nisi expedita! Recusandae tempore, iusto perferendis exercitationem adipisci a quisquam nemo ipsam rem eligendi nobis, tempora nesciunt unde vero sunt.
               </p>
-              <button class="btn btn-primary btn-sm">Contact Me</button>
+              <!-- <button class="btn btn-primary btn-sm">Contact Me</button> -->
           </div>
           <div class="col-md-6 text-right">
               
-              <div class=""></div>
+             <p>Scroll Ke Bawah</p>
 
           </div>
       </div>
@@ -48,19 +48,21 @@ header {
     color: white;
 
     #slide {
-
+        margin-top: 1em;
         $bayangan: 0px 2px 0;
         div:nth-child(1){
             #slogan {
                 display: flex;
-
+                flex-direction: column;
+                margin-bottom: 1.3em;
                 h1 {
-                    font-size: 3em;
+                    
+                    font-size: 4.5em;
                     font-weight: bold;
-                    text-transform: uppercase;
+                    // text-transform: uppercase;
                     font-weight: 550;
-                    letter-spacing: 2px;
-                    line-height: 1.5em;
+                    letter-spacing: -2px;
+                    line-height: .5em;
                     word-spacing: - .1em;
 
 
@@ -71,7 +73,7 @@ header {
                     &:nth-child(2){
                         text-shadow: $bayangan rgba($color: black, $alpha: .5);
 
-                        margin-left: .2em;
+                        margin-right: .2em;
                         color: $bg-orange;
                     }
                 }
@@ -91,6 +93,12 @@ header {
         div:nth-child(2){
             display: flex;
             justify-content: flex-end;
+
+            p {
+                color: rgba( #fff, .8 );
+                letter-spacing: .4em;
+                transform: rotate(90deg);
+            }
             div {
                 background-color: #fff;
                 width: 200px;
