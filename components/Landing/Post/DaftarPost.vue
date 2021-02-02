@@ -2,11 +2,11 @@
 <div>
 
 <div id="posts" class="mb-5"></div>
-<div class="bg-white   w-100 " id="post">
-	<header-post />	
+<div class="bg-white w-100 " id="post">
+	<HeaderPost />	
 	
-		<div class="row d-flex-justify-content-start bg-body py-3 pb-5">
-			<div class="col-md-12">
+		<div class="row d-flex-justify-content-start bg-body py-3 ">
+			<div class="col-md-12 bg-secondary pt-5 ">
 			
 			<div class="container p-0">
 				<!-- Start Wrapper Posts -->
@@ -29,6 +29,10 @@
 				</div>
 
 			</div>
+
+			<div class="col-md-12 text-center mb-5">
+				<button class="btn btn-sm btn-primary">Load More</button>
+			</div>
 		</div>
 
 	</div>
@@ -39,11 +43,6 @@
 <script>
 const apinews = "5c47d1673ca24cedab7ac11205bdea66"
 
-
-import HeaderPost from './HeaderPost.vue'
-import CardPost from './CardPost.vue'
-import Loader from '@/components/Loader.vue'
-
 import axios from 'axios'
 import {
 	defineComponent,
@@ -52,11 +51,6 @@ import {
 } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-	components: {
-		HeaderPost,
-		CardPost,
-		Loader
-	},
 	setup() {
 		const loading = ref(true)
 		const posts = ref([]) 
@@ -82,14 +76,16 @@ export default defineComponent({
 })
 </script>
 
-<style>
+<style lang="scss">
 
-#post {
-	min-height: 100vh;
-}
 .DaftarPost {
 	columns: 4;
-	/* column-gap: 10px; */
+
+	.post {
+		break-inside: avoid;
+		margin-bottom: 1rem;
+	}
+
 }
 
 </style>

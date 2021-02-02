@@ -6,9 +6,7 @@
     </div>
     <div class="card-header">
         <small class="posttanggal mb-2 d-block"> {{ date }}</small>
-        <!-- <div class=""> -->
             <a v-bind:href=title class="card-title">{{ title }}</a>
-        <!-- </div> -->
     </div>
     <div class="card-body text-secondary">{{ description }}</div>
     
@@ -33,49 +31,75 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+
 
 /* Post */
-.post {
-	break-inside: avoid;
-	margin-bottom: 1rem;
-}
 .card {
-	border-radius: 0 !important;
-	background-color: #fff;
+    background-color: white;
+    color: rgba($bg-text, $alpha: .8);
+
+    border-radius: 0 !important;
 	border-width: 0;
     padding-bottom: 1rem  !important;
     cursor: pointer;
     transition: .2s;
     font-size: 1rem;
-}
-.card:hover{
-    background-color: var(--warna-hijau);
-    color:white;
-    font-size: 1.2rem;
+    box-shadow: 0px 3px 0px #efefef;
+    overflow: hidden;
+    
+    .card-header,
+    .card-body {
+        padding-left:  .9rem !important;
+        padding-right:  .9rem !important;
+    }
+    .card-header{
+        background-color: unset;
+        border-width: 0;
+
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+    }
+
+    .card-img-top { border-radius: 0 ; }
+    .card-title {
+        color: inherit;
+        padding: unset;
+        font-size: 1em !important;
+        line-height: 1.3em !important;
+        font-weight: 600 !important;
+        margin: 0 !important;
+        
+        &:hover {color: inherit}
+
+    }
+
+    &:hover{
+        background-color: $bg-green;
+        color:white !important;
+        // font-size: 1.2rem;
+    }
+    
+    .picture {
+        overflow: hidden ;
+        
+        img{
+            filter: grayscale(.3);
+            height: 100%;
+            transition: all .5s;
+
+            &:hover {
+                filter: unset;
+                transform: rotate(25deg);
+                transform: scale(1.2);
+            }
+        }
+    }
 
 }
-.card-title {
-	padding: 0;
-	font-size: 1em !important;
-	line-height: 1.3em !important;
-	font-weight: 500 !important;
-	margin: 0 !important;
-}
-.card-title:hover {color: inherit}
 
-.card-header,
-.card-body {
-	padding-left:  .9rem !important;
-	padding-right:  .9rem !important;
-}
-.card-header{
-	background-color: unset;
-	border-width: 0;
 
-	padding-top: 0.5rem !important;
-	padding-bottom: 0.5rem !important;
-}
+
 .card-body {
 	padding-bottom: 0 !important;
 	padding-top: 0 !important;
@@ -95,8 +119,5 @@ export default {
 .picture {
 	background-color: #efefef;
 	width: 100%;
-}
-.picture img {
-	height: 100%;
 }
 </style>

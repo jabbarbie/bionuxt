@@ -2,7 +2,7 @@
 
 // Component
 .bg-primary { background-color: $bg-green  !important; color: $bg-text-white !important; } ;
-
+.bg-secondary { background-color: $bg-body !important; }
 
 .btn-primary { background-color: $bg-green  !important; color: $bg-text-white !important; border-width: 0 !important} ;
 .btn-primary:hover { background-color: $bg-orange !important; } ;
