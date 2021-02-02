@@ -1,0 +1,44 @@
+html { scroll-behavior: smooth; }
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    color: $bg-text;
+    background-color: $bg-body;
+}
+a { color: unset; text-decoration: none !important; transition: .1s;}
+a:hover { color: #017C5B }
+
+// Components Global
+button { transition: .2s; }
+.btn-oval {
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    border: 2px solid $bg-green;
+    background-color: $bg-green;
+    color: white;
+    font-weight: bold;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7rem;
+}
+.btn-oval:hover{
+    color: $bg-green;
+    background-color: #fff;
+}
+.btn-oval:active{
+    border: none;
+}
+#tombolUp {
+    position: absolute;
+    bottom: 2vh; 
+    right: 2vh;
+}

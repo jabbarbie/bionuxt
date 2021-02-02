@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Probio',
+    title: 'Sate',
     htmlAttrs: {
       lang: 'id'
     },
@@ -20,8 +20,8 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-
-
+    '@/assets/scss/component.scss',
+    '@/assets/scss/main.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -40,9 +40,17 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
+    '@nuxtjs/style-resources',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  // Import css secara global, sehingga bisa digunakan oleh component 
+  styleResources: {
+    scss: [
+        '@/assets/scss/variable.scss'
+    ]
   }
 }

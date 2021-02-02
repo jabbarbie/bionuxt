@@ -1,0 +1,15 @@
+// Fungsi untuk menulis ulang bootstrap
+
+// Component
+.bg-primary { background-color: $bg-green  !important; color: $bg-text-white !important; } ;
+
+
+.btn-primary { background-color: $bg-green  !important; color: $bg-text-white !important; border-width: 0 !important} ;
+.btn-primary:hover { background-color: $bg-orange !important; } ;
+
+.text-success {color: $bg-green !important}
+.text-warning {color: bg-orange !important}
+// Sizing
+.py-6 { padding-top: 7rem; padding-bottom: 7rem;}
+.py-7 { padding-top: 8rem; padding-bottom: 8rem;}
+.py-8 { padding-top: 9rem; padding-bottom: 8rem;}

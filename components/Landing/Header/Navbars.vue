@@ -1,7 +1,7 @@
 <template>
 <nav class="navbar navbar-expand-lg navbar-light p-0 pt-3 fixed-top navbar" :class="{'ubah-scroll': tampilkanNavbar}" >
   <div class="container bg-white p-0 " id="nav-container">
-    <a class="navbar-brand" href="#">Probio</a>
+    <a class="navbar-brand bg-primary" href="#">{{ title }}</a>
 
 		<div>
 		<!-- Burger -->
@@ -45,6 +45,7 @@ export default {
 
 	data() {
         return {
+			title: 'PS',
             tampilkanNavbar: false,
 			kursorTerakhir: 0,
 			tanggal: '0',
@@ -63,6 +64,7 @@ export default {
 			if (kursorSaatIni < 180) {
 				this.tampilkanNavbar = false
 				this.tombolUp = false
+				this.title = 'PS'
 				return 
 			}
 			
@@ -71,6 +73,7 @@ export default {
             this.tampilkanNavbar = true
 
 			this.kursorTerakhir = kursorSaatIni
+			this.title = 'Probio System'
 			this.$emit('tombolup', true)
 		},
 		setTanggal(){
@@ -85,61 +88,82 @@ export default {
 }
 </script>
 
-<style>
-nav {
-	z-index: 10 !important;
-	transition: .2s;
-}
-#nav-container {
-	padding-right: 1rem !important;
-}
-.navbar-brand {
-	background-color: var(--warna-hijau);
-	color: #fff !important;
-	font-size: 1.7rem !important;
-	padding: 0.7rem 1.5rem !important;
-	font-weight: 600;
-}
-
-a.active {color:var(--warna-hijau) !important;}
-ul.navbar-nav {
-	font-size: .9em;
-}
-ul.navbar-nav li { padding: 0 }
-
+<style lang="scss" scoped>
+// button {border: none; background: $bg-primary;}
 a.nav-link{
-	color: var(--text-gray);
 	font-weight: 500;
 
 	padding: .5rem .8rem !important;
 	border-radius: 10px;
 	margin-right: 0px;
+
+	&:hover{
+		color:$bg-primary;
+	}
 }
+nav {
+	z-index: 10 !important;
+	transition: .2s;
+	
+	#nav-container {
+		padding-right: 1rem !important;
+
+		
+		.navbar-brand {
+			font-size: 1.7rem !important;
+			padding: 0.7rem 1.5rem !important;
+			font-weight: 600;
+
+			&:hover {
+				background-color: $bg-hover !important;
+			}
+		}
+	
+	}
+
+}
+
+ul.navbar-nav {
+	font-size: .9em;
+	ul.navbar-nav li { padding: 0 }
+
+	li {
+
+		&:last-child {
+			
+			button{
+				border: .2rem solid $bg-primary;
+				background-color: $bg-primary;
+				color: white ;
+				padding: .4rem 1.3rem !important;
+				// padding-left: 1.3rem !important;
+				// padding-right: 1.3rem !important;
+				border-radius: 50px;
+				margin-left: 1rem;
+
+				&:hover {
+					background-color: #fff;
+					color: $bg-primary;
+					border-color: $bg-primary;
+				}
+			}
+			
+		}
+	}
+}
+
 
 a.nav-link:hover{
-	/* background-color: var(--warna-hijau); */
+	/* background-color: $bg-primary; */
 	/* color: #fff !important; */
-	color: var(--warna-hijau) !important;
-}
-
-button.nav-link {
-	border-width: 0;
-	background-color: var(--warna-hijau);
-	color: white !important;
-	padding-left: 1.5rem !important;
-	padding-right: 1.5rem !important;
-	border-radius: 50px;
-	margin-left: 1rem;
+	color: $bg-primary !important;
 }
 
 .ubah-scroll {
-	background-color: #fff;
+	background-color: white;
 	padding-top: 0 !important;
 	box-shadow: 0px 2px 15px rgb(0 0 0 / 10%);
 	
 }
 
-.btn-up {
-	transition: .2s;
-}
 </style>

@@ -13,7 +13,7 @@
     <!-- Button Latest / Popular -->
     <div class="row  d-flex justify-content-center ">
         <div class="col-2 d-flex justify-content between">
-            <button class="btn btn-success btn-sm rounded-pill w-100">Latest</button> <span class="mx-1">  </span>
+            <button class="btn btn-hijau btn-sm rounded-pill w-100">Latest</button> <span class="mx-1">  </span>
             <button class="btn btn-light btn-sm rounded-pill w-100 ">Popular</button>
         </div>
     </div>
