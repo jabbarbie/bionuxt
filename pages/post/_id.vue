@@ -1,6 +1,8 @@
 <template>
     <div class="container">
         <h1>About  {{ id }}</h1>
+
+        <fa icon="home" />
     </div>
 </template>
 

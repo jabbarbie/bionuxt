@@ -5,7 +5,7 @@
 <div class="bg-white w-100 " id="post">
 	<HeaderPost />	
 	
-		<div class="row d-flex-justify-content-start bg-body py-3 ">
+		<div class="row d-flex-justify-content-start bg-body ">
 			<div class="col-md-12 bg-secondary pt-5 ">
 			
 			<div class="container p-0">
@@ -30,8 +30,8 @@
 
 			</div>
 
-			<div class="col-md-12 text-center mb-5">
-				<button class="btn btn-sm btn-primary">Load More</button>
+			<div class="col-md-12 text-center my-5">
+				<button class="btn btn-sm btn-primary btn-outline-primary">Load More</button>
 			</div>
 		</div>
 
@@ -56,7 +56,7 @@ export default defineComponent({
 		const posts = ref([]) 
 
 		const { fetch, fetchState } = useFetch(async () => {
-			const res = await await axios.get('http://newsapi.org/v2/top-headlines?country=id&apiKey=' + apinews)
+			const res = await await axios.get('https://newsapi.org/v2/top-headlines?country=id&apiKey=' + apinews)
 			let articles = res.data.articles.filter(e => e.description != null)
 		
 			posts.value = articles.slice(0,8)

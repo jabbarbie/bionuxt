@@ -45,11 +45,11 @@ export default {
 
 	data() {
         return {
-			title: 'PS',
-            tampilkanNavbar: false,
-			kursorTerakhir: 0,
-			tanggal: '0',
-			tombolUp: false
+					title: 'PS',
+					tampilkanNavbar: false,
+					kursorTerakhir: 0,
+					tanggal: '0',
+					tombolUp: false
         }
         
     },
@@ -61,11 +61,11 @@ export default {
     methods: {
         onScroll(){
             const kursorSaatIni = window.pageYOffset || document.documentElement.scrollTop
-			if (kursorSaatIni < 180) {
-				this.tampilkanNavbar = false
-				this.tombolUp = false
-				this.title = 'PS'
-				return 
+						if (kursorSaatIni < 180) {
+						this.tampilkanNavbar = false
+						this.tombolUp = false
+						this.title = 'PS'
+						return 
 			}
 			
             // Update kursor terakhir jika kursur saat ini lebih kecil

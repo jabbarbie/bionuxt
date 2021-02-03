@@ -10,9 +10,14 @@
                   <h1>Probio</h1>
                   <h1>System</h1>
               </div>
+              
               <p>
                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi non nisi expedita! Recusandae tempore, iusto perferendis exercitationem adipisci a quisquam nemo ipsam rem eligendi nobis, tempora nesciunt unde vero sunt.
               </p>
+              <div class="sosmed">
+                  <fa :icon="['fab', 'facebook-f']" fill="green" size="32" color="white" />
+
+              </div>
               <!-- <button class="btn btn-primary btn-sm">Contact Me</button> -->
           </div>
           <div class="col-md-6 text-right">
@@ -25,7 +30,18 @@
   </Header>
 </template>
 
-
+<script>
+import { faJs } from '@fortawesome/free-brands-svg-icons'
+export default {
+ computed: {
+    fab () {
+      return {
+        faJs
+      }
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 $imageLink: '~@/assets/img/hero.jpg';
@@ -81,12 +97,25 @@ header {
                 
             }
             
+            $warna-deskripsi: rgba($color: #fff, $alpha: .8);
             p {
                 width: 85%;
-                color: rgba($color: #fff, $alpha: .8);
+                color: $warna-deskripsi;
                 line-height: 1.6em;
-                font-size: 1.2em  t;
+                font-size: 1.2em ;
                 font-weight: 200 ;
+            }
+
+            $icon-width: 35px;
+            $icon-padding: 8px;
+            svg {
+                display: block;
+                background-color: $bg-primary;
+                color: $warna-deskripsi;
+                padding: $icon-padding !important;
+                border-radius: 50%;
+                height: $icon-width;
+                width: $icon-width;
             }
         }
         // Slide yg kanan
