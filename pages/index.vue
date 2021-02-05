@@ -1,6 +1,6 @@
 <template>
 <div>
-
+  <Headers/>
   <Kotaks/> 
   <Abouts/> 
   <DaftarPost/>

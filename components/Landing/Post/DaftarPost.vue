@@ -22,6 +22,7 @@
 							:image=post.urlToImage 
 							:date=post.publishedAt
 							:description=post.description
+							:slug=post.slug
 						/>
 
 					</div>
@@ -56,8 +57,22 @@ export default defineComponent({
 		const posts = ref([]) 
 
 		const { fetch, fetchState } = useFetch(async () => {
-			const res = await await axios.get('https://newsapi.org/v2/top-headlines?country=id&apiKey=' + apinews)
+			// const api = 'https://newsapi.org/v2/top-headlines?country=id&apiKey='+ apinews
+
+			// const api = '/ipa/api/articles'
+			const api = 'http://localhost:8000/api/articles'
+			
+			const res = await await axios.get(api)
+			
+			// let articles = res.data.articles.filter(e => e.description != null)
 			let articles = res.data.articles.filter(e => e.description != null)
+
+			.map(e => {
+				if (e.description.split(0).length > 0){
+					e.description = e.description.split('.')[0] 
+				}
+				return e
+			})
 		
 			posts.value = articles.slice(0,8)
 			// data.jumlahpost = data.posts.length

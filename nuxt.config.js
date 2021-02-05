@@ -4,6 +4,11 @@ export default {
   target: 'static',
   ssr: false,
 
+  // variable global untuk cek production / development
+  env: {
+    baseUrl: 'sate'
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Probio System',
@@ -56,8 +61,8 @@ export default {
     ['nuxt-mq', {
         defaultBreakpoint: 'sm',
         breakpoints: {
-          sm: 450,
-          md: 1250,
+          sm: 768,
+          md: 992,
           lg: Infinity
         }
       }

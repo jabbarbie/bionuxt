@@ -14,9 +14,11 @@
               <p>
                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi non nisi expedita! Recusandae tempore, iusto perferendis exercitationem adipisci a quisquam nemo ipsam rem eligendi nobis, tempora nesciunt unde vero sunt.
               </p>
-              <div class="sosmed">
-                  <fa :icon="['fab', 'facebook-f']" fill="green" size="32" color="white" />
-
+              <div class="sosmed d-flex" >
+                    <a v-for="s in sosmed" :key="s.name" :title="s.alt" :href="s.link">
+                      <fa :icon="['fab', s.icon]" fill="green"  color="white" />
+                      <span>{{ s.name }}</span>
+                    </a>
               </div>
               <!-- <button class="btn btn-primary btn-sm">Contact Me</button> -->
           </div>
@@ -31,15 +33,18 @@
 </template>
 
 <script>
-import { faJs } from '@fortawesome/free-brands-svg-icons'
 export default {
- computed: {
-    fab () {
-      return {
-        faJs
-      }
-    }
-  }
+    data() {
+        return {
+            sosmed: [
+                {name: 'facebook', alt: 'Probio System', link: 'https://fb.me/probiosystem', icon: 'facebook-f'},
+                {name: 'twitter', alt: 'Probio System', link: 'https://twitter.com/probiosystem', icon: 'twitter'},
+                {name: 'instagram', alt: 'Probio System', link: 'https://instagram.com/probiosystem', icon: 'instagram'},
+                {name: 'whatsapp', alt: 'Probio System', link: 'https://wa.me', icon: 'whatsapp'},
+                {name: 'telegram', alt: 'Probio System', link: 'https://t.me/probiosystem', icon: 'telegram'},
+            ]
+        }
+    },
 }
 </script>
 
@@ -64,7 +69,7 @@ header {
     color: white;
 
     #slide {
-        margin-top: 1em;
+        margin-top: 10vh;
         $bayangan: 0px 2px 0;
         div:nth-child(1){
             #slogan {
@@ -97,26 +102,8 @@ header {
                 
             }
             
-            $warna-deskripsi: rgba($color: #fff, $alpha: .8);
-            p {
-                width: 85%;
-                color: $warna-deskripsi;
-                line-height: 1.6em;
-                font-size: 1.2em ;
-                font-weight: 200 ;
-            }
-
-            $icon-width: 35px;
-            $icon-padding: 8px;
-            svg {
-                display: block;
-                background-color: $bg-primary;
-                color: $warna-deskripsi;
-                padding: $icon-padding !important;
-                border-radius: 50%;
-                height: $icon-width;
-                width: $icon-width;
-            }
+          
+          
         }
         // Slide yg kanan
         div:nth-child(2){
@@ -147,6 +134,46 @@ header {
         bottom: 0;
         left: 0;
         width: 100%;
+    }
+
+    .sosmed {
+        a {
+            display: flex;
+            // justify-content: start;
+            align-items: center;
+            width: auto;
+            background-color: $bg-primary;
+            margin-right: .45vw;
+            font-size: .8em;
+            cursor: pointer;
+            transition: linear .2s;
+            $warna-deskripsi: rgba($color: #fff, $alpha: .8);
+            border-radius: 50%;
+            opacity: .9;
+            color: white;
+            &:hover {
+                background-color: $bg-orange;
+                border-radius: 0;
+                span {
+                    display: block;
+                }
+            }
+            span {
+                margin-right: .7rem;
+                display: none;
+            }
+            $icon-width: 30px;
+            $icon-padding: 8px;
+            svg {
+                display: block;
+                background-color: inherit;
+                color: $warna-deskripsi;
+                padding: $icon-padding !important;
+                border-radius: 50%;
+                height: $icon-width;
+                width: $icon-width;
+            }
+        }
     }
 }
 </style>

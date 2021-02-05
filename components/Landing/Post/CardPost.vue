@@ -1,12 +1,12 @@
 <template>
 <!-- Start Card -->
-<div class="card text-start d-flex ">
+<div class="card text-start d-flex " @click="postDetail">
     <div class="picture">
         <img v-if=image :src=image class="card-img-top" v-bind:alt="title" @error="gagal">
     </div>
     <div class="card-header">
         <small class="posttanggal mb-2 d-block"> {{ date }}</small>
-            <a v-bind:href=title class="card-title">{{ title }}</a>
+            <a v-bind:href="'post/' + slug" class="card-title">{{ title }}</a>
     </div>
     <div class="card-body text-secondary">{{ description }}</div>
     
@@ -21,11 +21,25 @@ export default {
         'title', 
         'image',
         'date',
-        'description'
+        'description',
+        'slug'
     ],
+    // data() {
+    //     return {
+    //         slug
+    //     }
+    // },
+    computed: {
+        // linkDetail: () => {
+        //     return slug
+        // }
+    },
     methods: {
         gagal(event){
             event.target.src = require('@/assets/img/spin.svg')
+        },
+        postDetail(){
+            console.log(this.slug);
         }
     },
 }
@@ -78,21 +92,20 @@ export default {
         background-color: $bg-green;
         color:white !important;
         // font-size: 1.2rem;
+
+        img {
+                filter: unset;
+                transform: rotate(25deg);
+                transform: scale(1.2);
+        }
     }
     
     .picture {
         overflow: hidden ;
-        
         img{
             filter: grayscale(.3);
             height: 100%;
             transition: all .5s;
-
-            &:hover {
-                filter: unset;
-                transform: rotate(25deg);
-                transform: scale(1.2);
-            }
         }
     }
 

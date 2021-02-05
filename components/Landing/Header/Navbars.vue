@@ -1,7 +1,7 @@
 <template>
 <nav class="navbar navbar-expand-lg navbar-light p-0 pt-3 fixed-top navbar" :class="{'ubah-scroll': tampilkanNavbar}" >
   <div class="container bg-white p-0 " id="nav-container">
-    <a class="navbar-brand bg-primary" href="#">{{ title }}</a>
+    <a class="navbar-brand bg-primary" href="#">{{ title }} </a>
 
 		<div>
 		<!-- Burger -->

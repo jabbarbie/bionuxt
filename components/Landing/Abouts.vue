@@ -12,7 +12,7 @@
 				<h2>Ini mau diisi apa</h2>
 
 				<h5 class="mt-4">
-					Umumnya profil mengenai website tersebut, tapi apa ya yang harus diisi sebagai dummy data? Tidakkkk
+					Minus nihil illo voluptate impedit sit adipisci assumenda libero illum ex harum dolorum iste dolore dolor nostrum excepturi.
 				</h5>
 			</div>
 
