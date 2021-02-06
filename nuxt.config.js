@@ -6,7 +6,7 @@ export default {
 
   // variable global untuk cek production / development
   env: {
-    baseUrl: 'sate'
+    baseUrl: 'http://localhost:8000/api/',
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -73,7 +73,14 @@ export default {
   // Tambahan untuk handle middlerware
   router: {
     // base: '/dists/',
-    middleware: ['mobile']
+    routes: [
+      {
+        name: 'post',
+        path: '/post/:slug',
+        component: 'pages/post/_id.vue'
+      }
+    ],
+    middleware: ['mobile', 'detail']
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

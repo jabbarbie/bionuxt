@@ -1,14 +1,17 @@
 <template>
-  <Header class="d-flex justify-content-center align-items-center">
+  <Header class="d-flex justify-content-center align-items-center" >
+      <h1>{{ title }}</h1>
       <Navbars></Navbars>
+                  
       
-      <div class="container px-0">
+      <div class="container px-0" v-if="mode != 'single'">
 
       <div class="col-md-12  p-0 d-flex justify-content-between" id="slide">
           <div class="col-md-6 text-left p-0 ">
               <div id="slogan">
-                  <h1>Probio</h1>
+                  <h1>Probio </h1>
                   <h1>System</h1>
+                  <h1>{{ title }}</h1>
               </div>
               
               <p>
@@ -34,8 +37,10 @@
 
 <script>
 export default {
+    props: ['title', 'mode'],
     data() {
         return {
+            imageHeader: '',
             sosmed: [
                 {name: 'facebook', alt: 'Probio System', link: 'https://fb.me/probiosystem', icon: 'facebook-f'},
                 {name: 'twitter', alt: 'Probio System', link: 'https://twitter.com/probiosystem', icon: 'twitter'},
@@ -45,11 +50,24 @@ export default {
             ]
         }
     },
+    mounted() {
+        this.infoWeb()
+    },
+    methods: {
+        infoWeb(){
+            if (this.mode == 'single'){
+                this.imageHeader = '~@/assets/img/hero.jpg'
+            }else{
+
+            }
+        }
+    },
+
 }
 </script>
 
 <style lang="scss" scoped>
-$imageLink: '~@/assets/img/hero.jpg';
+// $imageLink: '~@/assets/img/hero.jpg';
 
 header {
     position: relative;
@@ -59,7 +77,7 @@ header {
     
     background-color: gray;
     background-color: $bg-green;
-    background-image: url($imageLink); 
+    // background-image: url($imageLink); 
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;

@@ -24,22 +24,29 @@ export default {
         'description',
         'slug'
     ],
-    // data() {
-    //     return {
-    //         slug
-    //     }
-    // },
-    computed: {
-        // linkDetail: () => {
-        //     return slug
-        // }
+    data() {
+        return {
+            link: ''
+        }
+    },
+    mounted() {
+        this.ubahSlug()
     },
     methods: {
         gagal(event){
             event.target.src = require('@/assets/img/spin.svg')
         },
+        ubahSlug(){
+            this.link = 'post/' + this.slug
+        },
         postDetail(){
-            console.log(this.slug);
+            // console.log('sate');
+            // console.log(this.link);
+            // router.push({ name: "post"})
+            // router.push({ path: 'post'})
+            // window.lo
+            // router.push(this.link)
+            location.replace(this.link);
         }
     },
 }
