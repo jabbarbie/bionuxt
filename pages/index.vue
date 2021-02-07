@@ -1,6 +1,6 @@
 <template>
 <div>
-  <Headers/>
+  <Headers :landing="landing" />
   <Kotaks/> 
   <Abouts/> 
   <DaftarPost/>
@@ -11,7 +11,12 @@
 
 <script>
 export default {
-  layout: ({ isMobile }) => isMobile ? 'mobile' : 'default'
+  layout: ({ isMobile }) => isMobile ? 'mobile' : 'default',
+  data() {
+    return {
+      landing: true
+    }
+  },
   // layout: 'mobile'
 }
 </script>

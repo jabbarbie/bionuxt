@@ -53,21 +53,36 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 #kotak {
 	display: flex;
 	margin-top: -1vh;
 	z-index: 1;
 	width: 100% !important;
-	color: #fff
-}
-.kotak {
-	padding: 2rem;
-	flex-basis: 25%;
-	/* height: 300px; */
-}
-.kotak h1 {
+	color: #fff;
+	overflow: hidden;
+	height: 230px;
 	font-size: 1.2rem;
+
+	.kotak {
+		padding: 2rem;
+		flex-basis: 25%;
+		transition: background .1s, font .5s;
+
+
+		&:hover {
+			background-color: $bg-text;
+			color: $bg-orange;
+			height: 120%;
+			cursor: pointer;
+			font-size: 1.4em;
+		}
+	}
+}
+
+.kotak h1 {
+	font-size: 1em;
+
 	border-bottom: 1px solid rgba(255,255,255,.2);
 	padding-bottom: 0.5rem;
 	margin-bottom: 0.8rem;

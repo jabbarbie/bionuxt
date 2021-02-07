@@ -1,17 +1,17 @@
 <template>
-  <Header class="d-flex justify-content-center align-items-center" >
-      <h1>{{ title }}</h1>
-      <Navbars></Navbars>
-                  
-      
-      <div class="container px-0" v-if="mode != 'single'">
+  <Header class="d-flex justify-content-center align-items-center" 
+  :class="landing? 'full':'half' " 
+  
+  :style="`background-image: url(${imageHeader})`  ">
 
-      <div class="col-md-12  p-0 d-flex justify-content-between" id="slide">
+      <Navbars></Navbars>
+      <div class="container px-0" >
+
+      <div v-if="landing" class="col-md-12  p-0 d-flex justify-content-between" id="slide">
           <div class="col-md-6 text-left p-0 ">
               <div id="slogan">
                   <h1>Probio </h1>
                   <h1>System</h1>
-                  <h1>{{ title }}</h1>
               </div>
               
               <p>
@@ -37,7 +37,7 @@
 
 <script>
 export default {
-    props: ['title', 'mode'],
+    props: ['landing', 'background'],
     data() {
         return {
             imageHeader: '',
@@ -55,10 +55,10 @@ export default {
     },
     methods: {
         infoWeb(){
-            if (this.mode == 'single'){
+            if (this.landing){
                 this.imageHeader = '~@/assets/img/hero.jpg'
             }else{
-
+                this.imageHeader = this.background
             }
         }
     },
@@ -69,9 +69,10 @@ export default {
 <style lang="scss" scoped>
 // $imageLink: '~@/assets/img/hero.jpg';
 
+.full { height: 100vh }
+.half { height: 80vh }
 header {
     position: relative;
-    height: 100vh;
     font-family: var(--font-utama);
     text-align: center;
     
