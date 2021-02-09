@@ -60,12 +60,14 @@ export default defineComponent({
 			// const api = 'https://newsapi.org/v2/top-headlines?country=id&apiKey='+ apinews
 
 			// const api = '/ipa/api/articles'
-			const api = 'http://localhost:8000/api/articles'
+			const api = 'http://localhost:8000/api/post'
 			
 			const res = await await axios.get(api)
+
+			console.log(res.data.Post);
 			
-			// let articles = res.data.articles.filter(e => e.description != null)
-			let articles = res.data.articles.filter(e => e.description != null)
+			// let post = res.data.post.filter(e => e.description != null)
+			let post = res.data.Post.filter(e => e.description != null)
 
 			.map(e => {
 				if (e.description.split(0).length > 0){
@@ -74,7 +76,7 @@ export default defineComponent({
 				return e
 			})
 		
-			posts.value = articles.slice(0,8)
+			posts.value = post.slice(0,8)
 			// data.jumlahpost = data.posts.length
 			loading.value = false
 		})

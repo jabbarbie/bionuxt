@@ -2,6 +2,7 @@
 <div>
 		<Headers :background="post.thumbnail" />
 		<Detail :comment="comment" :post="post" />
+		<Footers />
 </div>
 
 	
@@ -22,10 +23,10 @@ export default {
 		console.log(context.params.id);
 		const slug = context.params.id
 
-		let api = ((context.isDev)?'http://localhost:8000/api/articles/':'ipa/api/articles/') + slug
+		let api = ((context.isDev)?'http://localhost:8000/api/post/':'ipa/api/post/') + slug
 		
 		const data = await fetch(api).then((res) => res.json())
-		const post = data.articles
+		const post = data.Post
 
 		console.log(post);
 		// const title = "sate"
