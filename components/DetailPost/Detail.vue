@@ -2,8 +2,8 @@
   <main class="container px-0">
     <section id="post-header">
 
-      <div class="row d-flex justify-content-center">
-        <div class="col-12 p-0 m-0">
+      <div class="row d-flex justify-content-start">
+        <div class="col-md-8 col-sm-12 p-0 m-0">
           <h1>{{ post.title }}</h1>
           <p>
             <span>
@@ -66,7 +66,8 @@ main {
       font-size: 2.6em;
       line-height: 1.2em;
       font-weight: 700;
-      text-shadow: 2px 2px 2px black;
+      // text-shadow: 2px 2px 2px black;
+      // text-transform: uppercase;
     }
     p {
       font-size: .65em;

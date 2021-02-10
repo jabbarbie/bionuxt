@@ -1,6 +1,8 @@
 <template>
   <Header class="d-flex justify-content-center align-items-center" 
-  :class="landing? 'full':'half' ">
+  :class="landing? 'full':'half' "
+  :style="`background-image: url(${imageHeader})`  ">
+  >
 
       <Navbars :landing="landing"></Navbars>
       <div class="container px-0" >
@@ -54,7 +56,7 @@ export default {
     methods: {
         infoWeb(){
             if (this.landing){
-                this.imageHeader = '~@/assets/img/hero.jpg'
+                this.imageHeader = '_nuxt/assets/img/hero.jpg'
             }else{
                 this.imageHeader = this.background
             }
@@ -145,7 +147,7 @@ header {
         // Untuk handle background, supaya bisa diatur brighnest / filternya
         position: absolute;
         content:"";
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: rgba($color: #000000, $alpha: .6);
         filter: grayscale(0.5);
         top: 0;
         bottom: 0;
