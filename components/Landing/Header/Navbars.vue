@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse" id="navbarMenu">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" :href="link">Home</a>
         </li>
 
         <li class="nav-item">
@@ -42,9 +42,10 @@
 
 <script>
 export default {
-
+	props: ['landing'],
 	data() {
         return {
+					link: '',
 					title: 'PS',
 					tampilkanNavbar: false,
 					kursorTerakhir: 0,
@@ -54,9 +55,9 @@ export default {
         
     },
     mounted() {
-		window.addEventListener('scroll', this.onScroll)
-		this.setTanggal()
-		
+			window.addEventListener('scroll', this.onScroll)
+			this.setTanggal()
+			this.setLink()
     },
     methods: {
         onScroll(){
@@ -83,6 +84,11 @@ export default {
 
 			this.tanggal = Hari[parseInt(t.getDay())-1] + ', ' + t.getDay() + " " +  Bulan[t.getUTCMonth()] + " " 
 		
+		},
+		setLink(){
+			if (this.$props.landing){
+				this.link = "/"
+			}
 		}
     },
 }

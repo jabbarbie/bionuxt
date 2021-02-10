@@ -1,6 +1,6 @@
 <template>
 <div>
-		<Headers :background="post.thumbnail" />
+		<Headers :background="post.thumbnail"  />
 		<Detail :comment="comment" :post="post" />
 		<Footers />
 </div>

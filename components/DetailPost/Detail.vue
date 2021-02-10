@@ -3,15 +3,35 @@
     <section id="post-header">
 
       <div class="row d-flex justify-content-center">
-        <div class="col-8">
+        <div class="col-12 p-0 m-0">
           <h1>{{ post.title }}</h1>
-          <p>Ditulis oleh : {{ post.author.nama }} - Tanggal : 07 Januari 2021</p>
+          <p>
+            <span>
+              <fa :icon="['fas', 'user-edit']"  /> {{ post.author.nama }}
+            </span>
+            <span>
+              <fa :icon="['fas', 'calendar-alt']"  /> 10 Februari 2021
+            </span>
+          </p>
         </div>
       </div>
 
     </section>
-    <section id="post-body" v-html="post.content"></section>
-    <section id="post-footer"></section>
+    <div class="row d-flex justify-content-between">
+      <div class="col-md-9 col-sm-12">
+        <section id="post-body" v-html="post.content"></section>
+        <section id="post-footer"></section>
+      </div>
+
+      <aside class="col-3">
+        <div class="widget p-3">
+          <h2>Penulis</h2>
+          <div>
+
+          </div>
+        </div>
+      </aside>
+    </div>
   </main>
 </template>
 
@@ -35,34 +55,45 @@ export default {
 <style lang="scss" scope>
 main {
   position: relative;
-  margin-top: -40vh;
-  font-size: 1.5rem;
+  margin-top: -50vh;
+  font-size: 1.3rem;
 
   $warna-bg: white;
   #post-header {
     color: #fff !important;
-    text-align: center;
+    text-align: left;
     h1 {
-      font-size: 1.2em;
-      line-height: 1.5em;
+      font-size: 2.6em;
+      line-height: 1.2em;
       font-weight: 700;
       text-shadow: 2px 2px 2px black;
     }
     p {
-      font-size: .6em;
-      font-weight: 400;
+      font-size: .65em;
+      font-weight: 500;
+      color: rgba($color: $bg-orange, $alpha: .7);
+      font-weight: 500;
+      letter-spacing: 1px;
+      span {
+        margin-right: .5em;
+      }
     }
   }
   #post-body {
     background-color: $warna-bg;
     min-height: 20em;
-    font-size: .75em;
-    line-height: 2em;
+    font-size: .8em;
+    line-height: 1.7em;
     margin-bottom: 2rem;
 
+    p {
+      margin-bottom: 1em;
+    }
     h1,h2,h3,h4,h5,h6 {
       color: $bg-primary;
       margin-top: 1em;
+      margin-bottom: .5em;
+      font-weight: 550;
     }
   }
   
@@ -72,6 +103,22 @@ main {
   section{
     padding: 2vw;
     margin-bottom: 1vh;
+  }
+
+  aside {
+    margin-top: 6.8vh;
+    display: none;
+    h2 {
+      font-size: .89em;
+      border-bottom: 2px $bg-gray solid;
+      padding-bottom: .45em;
+      font-weight: 550;
+      color: rgba($color: #000000, $alpha: .6);
+    }
+    .widget {
+      background-color: #fff;
+      border-top-right-radius: 1em;
+    }
   }
 }
 </style>

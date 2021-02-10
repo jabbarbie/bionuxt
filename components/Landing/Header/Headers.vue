@@ -1,10 +1,8 @@
 <template>
   <Header class="d-flex justify-content-center align-items-center" 
-  :class="landing? 'full':'half' " 
-  
-  :style="`background-image: url(${imageHeader})`  ">
+  :class="landing? 'full':'half' ">
 
-      <Navbars></Navbars>
+      <Navbars :landing="landing"></Navbars>
       <div class="container px-0" >
 
       <div v-if="landing" class="col-md-12  p-0 d-flex justify-content-between" id="slide">
