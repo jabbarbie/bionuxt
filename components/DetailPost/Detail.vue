@@ -1,10 +1,15 @@
 <template>
   <main class="container px-0">
-    <section id="post-header">
+    <section id="post-header" class="px-3">
 
       <div class="row d-flex justify-content-start">
         <div class="col-md-8 col-sm-12 p-0 m-0">
-          <h1>{{ post.title }}</h1>
+          
+            <ul class="breadcrumb">
+              <li>Berita</li>
+            </ul>
+          
+          <h1 :class="sizeFont">{{ post.title }}</h1>
           <p>
             <span>
               <fa :icon="['fas', 'user-edit']"  /> {{ post.author.nama }}
@@ -40,43 +45,81 @@ export default {
   props: ['comment','post'],
   data() {
     return {
-      f: this.$props.post.title
+      f: this.$props.post.title,
+      sizeFont: 'font-biasa'
     }
+  },
+  mounted() {
+    this.setFont()
   },
   head(){
     return {
-
       title: this.$props.post.title
     }
-  }
+  },
+  methods: {
+    setFont(){
+      if (this.$props.post.title.length > 55 ){
+        this.sizeFont = 'font-kecil'
+      } 
+    }
+  },
 }
 </script>
 
 <style lang="scss" scope>
+.font-biasa {
+  font-size: 2.6em;
+}
+.font-kecil {
+  font-size: 2.2em;
+}
 main {
   position: relative;
-  margin-top: -50vh;
+  margin-top: -55vh;
   font-size: 1.3rem;
 
   $warna-bg: white;
   #post-header {
     color: #fff !important;
     text-align: left;
+
+    $font-header: .7em;
     h1 {
-      font-size: 2.6em;
       line-height: 1.2em;
       font-weight: 700;
       // text-shadow: 2px 2px 2px black;
       // text-transform: uppercase;
     }
     p {
-      font-size: .65em;
+      font-size: $font-header;
       font-weight: 500;
       color: rgba($color: $bg-orange, $alpha: .7);
       font-weight: 500;
       letter-spacing: 1px;
       span {
         margin-right: .5em;
+      }
+    }
+     // Untuk Breadcrumb
+    ul.breadcrumb{
+      font-size: $font-header - 0.1;
+      list-style: none;
+      background-color: unset !important;
+      padding: 0;
+      margin: 0 0 1.5rem 0;
+
+      li {
+        opacity: .8;
+        letter-spacing: 1px;
+        color: #efefef;
+        background-color: gray;
+        padding: .2em .7em;
+        border-radius: 5px;
+
+        &:hover {
+          opacity: 1;
+        }
       }
     }
   }
@@ -121,5 +164,7 @@ main {
       border-top-right-radius: 1em;
     }
   }
+
+ 
 }
 </style>
