@@ -17,10 +17,10 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#abouts">About</a>
+          <a class="nav-link" :href="[`${link}#abouts`]">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#posts">Article</a>
+          <a class="nav-link" :href="[`${link}#posts`]">Article</a>
         </li>
 
 				<li class="nav-item">
@@ -86,7 +86,7 @@ export default {
 		
 		},
 		setLink(){
-			if (this.$props.landing){
+			if (! this.$props.landing){
 				this.link = "/"
 			}
 		}
