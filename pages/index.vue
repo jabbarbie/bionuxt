@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  layout: ({ isMobile }) => isMobile ? 'mobile' : 'default',
+  layout: (ctx) => ctx.$device.isMobile ? 'mobile' : 'default',
   data() {
     return {
       landing: true

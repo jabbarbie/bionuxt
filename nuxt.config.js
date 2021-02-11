@@ -42,7 +42,8 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/composition-api',
-    '@nuxtjs/fontawesome'
+    '@nuxtjs/fontawesome',
+    '@nuxtjs/device',
   ],
 
   fontawesome: {
@@ -76,11 +77,11 @@ export default {
     routes: [
       {
         name: 'post',
-        path: '/post/:slug',
+        path: '/post/:slug?',
         component: 'pages/post/_id.vue'
       }
     ],
-    middleware: ['mobile', 'detail']
+    // middleware: ['mobile', 'detail']
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

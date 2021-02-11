@@ -3,7 +3,7 @@
 	<div class="container">
 
 		<div class="row d-flex justify-content-start ">
-			<div class="flex justify-content-start" id="kotak">
+			<div class="flex justify-content-start" id="kotak" :class="[$device.isMobile ? 'mobileKotak':'']">
 
 				<!-- Kotak 1 -->
 				<div class="col-md-3  kotak" 
@@ -54,6 +54,10 @@ export default {
 </script>
 
 <style lang="scss">
+.mobileKotak {
+	flex-direction: column-reverse;
+	height: auto !important;
+}
 #kotak {
 	display: flex;
 	margin-top: -1vh;

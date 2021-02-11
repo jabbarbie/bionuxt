@@ -3,7 +3,7 @@
 
 <div id="abouts" class="mb-5"></div>
 
-<section id="about" class="d-flex justify-content-center align-items-center py-5">
+<section :id="[$device.isMobile?'mobileAbout':'about']" class="d-flex justify-content-center align-items-center py-5">
 	<div class="container">
 
 		<div class="row d-flex justify-content-center ">
@@ -38,7 +38,22 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+#mobileAbout {
+	text-align: center ;
+
+	div.row {
+		div:first-child{
+			text-align: center !important;
+		}
+	}
+	h1 {
+		font-weight: bold;
+	}
+	h2 {
+		display: none;
+	}
+}
 #about {
 	margin: 2rem 0;
 }

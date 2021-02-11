@@ -1,38 +1,35 @@
 <template>
-  <Header class="d-flex justify-content-center align-items-center" 
-  :class="landing? 'full':'half' "
-  :style="`background-image: url(${imageHeader})`  "
-  >
+<Header class="d-flex justify-content-center align-items-center" 
+:class="landing? 'full':'half' "
+:style="`background-image: url(${imageHeader})`  "
+:id="$device.isMobile ? 'mobileHeader':'' 
+">
+	<Navbars :landing="landing"></Navbars>
+	<div class="container px-0 text-center" >
+		<div v-if="landing" class="col-md-12  p-0 d-flex justify-content-between" id="slide">
+			<div class="col-md-6 p-0 col-sm-6" :class="[$device.isDesktop? 'text-left':'']">
+					<div id="slogan">
+							<h1>Probio </h1>
+							<h1>System</h1>
+					</div>
+					<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi non nisi expedita! Recusandae tempore, iusto perferendis exercitationem adipisci a quisquam nemo ipsam rem eligendi nobis, tempora nesciunt unde vero sunt.
+					</p>
+					<div class="sosmed d-flex"  >
+									<a v-for="s in sosmed" :key="s.name" :title="s.alt" :href="s.link">
+									<fa :icon="['fab', s.icon]" fill="green"  color="white" />
+									<span>{{ s.name }}</span>
+									</a>
+					</div>
+					<!-- <button class="btn btn-primary btn-sm">Contact Me</button> -->
+			</div>
+			<div class="col-md-6 text-right" v-if="$device.isDesktop">
+					<p>Scroll Ke Bawah</p>
+			</div>
+		</div>
 
-      <Navbars :landing="landing"></Navbars>
-      <div class="container px-0" >
-        <div v-if="landing" class="col-md-12  p-0 d-flex justify-content-between" id="slide">
-            <div class="col-md-6 text-left p-0 ">
-                <div id="slogan">
-                    <h1>Probio </h1>
-                    <h1>System</h1>
-                </div>
-                
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi non nisi expedita! Recusandae tempore, iusto perferendis exercitationem adipisci a quisquam nemo ipsam rem eligendi nobis, tempora nesciunt unde vero sunt.
-                </p>
-                <div class="sosmed d-flex" >
-                        <a v-for="s in sosmed" :key="s.name" :title="s.alt" :href="s.link">
-                        <fa :icon="['fab', s.icon]" fill="green"  color="white" />
-                        <span>{{ s.name }}</span>
-                        </a>
-                </div>
-                <!-- <button class="btn btn-primary btn-sm">Contact Me</button> -->
-            </div>
-            <div class="col-md-6 text-right">
-                
-                <p>Scroll Ke Bawah</p>
-
-            </div>
-        </div>
-  
-      </div>
-  </Header>
+	</div>
+</Header>
 </template>
 
 <script>
@@ -52,13 +49,14 @@ export default {
     },
     mounted() {
         this.infoWeb()
-    },
+		},
+		
     methods: {
         infoWeb(){
             if (this.landing){
-                this.imageHeader = '_nuxt/assets/img/hero.jpg'
+                this.imageHeader = require('@/assets/img/hero.jpg')
             }else{
-                // this.imageHeader = this.background
+                this.imageHeader = this.background
             }
         }
     },
@@ -67,6 +65,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#mobileHeader {
+	#slide {
+		display: flex;
+		justify-content: center !important;
+		> div {
+			width: 80vw;
+		}
+	}
+	.sosmed {
+		justify-content: center;
+
+		a {
+			margin-right: 2vw;
+		}
+	}
+}
 // $imageLink: '~@/assets/img/hero.jpg';
 
 .full { height: 100vh }

@@ -13,7 +13,7 @@
 				<div class="d-flex justify-content-center" v-if=loading>
 					<loader  />
 				</div>
-				<div class="DaftarPost  " >
+				<div  :class="$device.isMobile? 'mobileDaftarPost':'DaftarPost'" >
 
 					<div class="post"  v-for="post in posts" :key="post.title" >
 						
@@ -94,7 +94,15 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-
+.mobileDaftarPost {
+	columns: 1;
+	.post {
+		margin: auto;
+		width: 90vw;
+		break-inside: avoid;
+		margin-bottom: 1rem;
+	}
+}
 .DaftarPost {
 	columns: 4;
 

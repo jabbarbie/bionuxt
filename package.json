@@ -21,6 +21,7 @@
   "devDependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@nuxtjs/device": "^2.0.0",
     "@nuxtjs/fontawesome": "^1.1.2",
     "@nuxtjs/style-resources": "^1.0.0",
     "fibers": "^5.0.0",

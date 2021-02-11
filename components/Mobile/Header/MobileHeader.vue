@@ -1,7 +1,5 @@
 <template>
-<div>
-
-<nav v-if="$device.isDesktopOrTablet" class="navbar navbar-expand-lg navbar-light p-0 pt-3 fixed-top navbar" :class="{'ubah-scroll': tampilkanNavbar}" >
+<nav class="navbar navbar-expand-lg navbar-light p-0 pt-3 fixed-top navbar" :class="{'ubah-scroll': tampilkanNavbar}" >
   <div class="container bg-white p-0 " id="nav-container">
     <a class="navbar-brand bg-primary" href="/">{{ title }} </a>
 
@@ -39,15 +37,6 @@
 		</div>
   </div>
 </nav>
-
-<!-- Mobile View -->
-<nav v-else class="fixed-top d-flex justify-content-between alig-items-center p-3" id="mobile-header">
-	<div> <fa :icon="['fas', 'bars']" fill="green"  color="white" /></div>
-	<div> <fa :icon="['fas', 'leaf']" fill="green"  color="white" /></div>
-	<div> <fa :icon="['fas', 'search']" fill="green"  color="white" /></div>
-</nav>
-</div>
-
 
 </template>
 
@@ -107,12 +96,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#mobile-header {
-	font-size: 1.2em;
-	width: 100vw;
-
-
-}
 // button {border: none; background: $bg-primary;}
 a.nav-link{
 	font-weight: 500;

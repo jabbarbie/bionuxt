@@ -40,12 +40,6 @@ export default {
             this.link = 'post/' + this.slug
         },
         postDetail(){
-            // console.log('sate');
-            // console.log(this.link);
-            // router.push({ name: "post"})
-            // router.push({ path: 'post'})
-            // window.lo
-            // router.push(this.link)
             location.replace(this.link);
         }
     },
@@ -111,7 +105,6 @@ export default {
         overflow: hidden ;
         img{
             filter: grayscale(.3);
-            height: 100%;
             transition: all .5s;
         }
     }
