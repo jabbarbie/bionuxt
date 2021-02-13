@@ -5,9 +5,7 @@ export default {
   ssr: false,
 
   // variable global untuk cek production / development
-  env: {
-    baseUrl: 'http://localhost:8000/api/',
-  },
+  
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {

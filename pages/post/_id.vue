@@ -1,6 +1,7 @@
 <template>
 <div>
-		<Headers :background="post.thumbnail"  />
+		<NavbarsHeader v-if="$device.isMobile" />
+		<Headers   v-else   :background="post.thumbnail"  />
 		<Detail :comment="comment" :post="post" />
 		<Footers />
 </div>
@@ -23,7 +24,8 @@ export default {
 		console.log(context.params.id);
 		const slug = context.params.id
 
-		let api = ((context.isDev)?'http://localhost:8000/api/post/':'ipa/api/post/') + slug
+		let api = 'https://probiosystem.com/ipa/api/post/' + slug
+		// let api = ((context.isDev)?'http://localhost:8000/api/post/':'ipa/api/post/') + slug
 		
 		const data = await fetch(api).then((res) => res.json())
 		const post = data.Post
@@ -34,10 +36,11 @@ export default {
 		// console.log(this.title);
 	},
 	// fetchOnServer: true,
-
-
-
-
-		
 }
 </script>
+
+<style lang="scss">
+	body {
+		background-color: white ;
+	}
+</style>

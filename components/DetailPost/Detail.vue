@@ -1,5 +1,6 @@
 <template>
-  <main class="container px-0">
+<div>
+  <main class="container px-0" :id="$device.isMobile?'mobileMain':''">
     <section id="post-header" class="px-3">
 
       <div class="row d-flex justify-content-start">
@@ -24,6 +25,7 @@
     </section>
     <div class="row d-flex justify-content-between">
       <div class="col-md-9 col-sm-12">
+        <img :src="post.thumbnail" v-if="$device.isMobile" alt="" class="detail-thumbail">
         <section id="post-body" v-html="post.content"></section>
         <section id="post-footer"></section>
       </div>
@@ -38,6 +40,8 @@
       </aside>
     </div>
   </main>
+</div>
+
 </template>
 
 <script>
@@ -68,6 +72,53 @@ export default {
 </script>
 
 <style lang="scss" scope>
+#mobileMain {
+  margin-top: 2rem !important;
+  padding: 0 4vw !important;
+  font-size: 1.2rem !important ;
+
+  #post-header {
+    ul.breadcrumb {
+      display: none;
+    }
+    p {
+      color: $bg-primary !important;
+      font-weight: 500 !important;
+      letter-spacing: normal !important;
+    }
+  }
+  #post-body {
+    h1 { font-size: 1.6em !important;}
+    h2 { font-size: 1.3em !important;}
+    h3 { font-size: 1.2em !important;}
+    h4 { font-size: 1.1em !important;}
+    h5 { font-size: 1em !important;}
+    h6 { font-size: .9em !important;}
+  }
+  img.detail-thumbail {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  section {
+    padding: unset;
+  }
+
+  // Untuk setting font judul post
+  .font-biasa,
+  .font-kecil {
+    color: $bg-text !important;
+    font-weight: 550 !important;
+  }
+  .font-biasa {
+    font-size: 1.5em;
+    line-height: 1.3em !important;
+  }
+  .font-kecil {
+   font-size: 1.5em;
+    line-height: 1.3em !important;
+  }
+}
 .font-biasa {
   font-size: 2.6em;
 }
@@ -94,7 +145,7 @@ main {
     p {
       font-size: $font-header;
       font-weight: 500;
-      color: rgba($color: $bg-orange, $alpha: .7);
+      color: rgba($color: $bg-orange  , $alpha: .7);
       font-weight: 500;
       letter-spacing: 1px;
       span {

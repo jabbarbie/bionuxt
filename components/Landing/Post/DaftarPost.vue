@@ -60,7 +60,7 @@ export default defineComponent({
 			// const api = 'https://newsapi.org/v2/top-headlines?country=id&apiKey='+ apinews
 
 			// const api = '/ipa/api/articles'
-			const api = 'http://localhost:8000/api/post'
+			const api = 'https://probiosystem.com/ipa/api/post'
 			
 			const res = await await axios.get(api)
 
